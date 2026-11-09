@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff0f5">
+<title>For Koyel ♡</title>
+<style>
+:root{--pink:#ff6f9f;--deep:#b83267;--cream:#fff8f7;--ink:#573044}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:radial-gradient(circle at 15% 15%,#ffe0eb 0,transparent 32%),radial-gradient(circle at 85% 80%,#ffdce8 0,transparent 35%),linear-gradient(135deg,#fff9f8,#ffeef4);overflow-x:hidden}
+main{min-height:100svh;display:grid;place-items:center;padding:28px 16px;position:relative}
+.card{width:min(100%,560px);text-align:center;background:#ffffffc9;border:1px solid #fff;box-shadow:0 22px 70px #b832671c;border-radius:30px;padding:clamp(25px,6vw,48px);backdrop-filter:blur(10px);position:relative;z-index:2}
+.kicker{font:600 11px Arial,sans-serif;letter-spacing:4px;text-transform:uppercase;color:#c65b82}
+h1{font-size:clamp(38px,9vw,62px);line-height:1.03;margin:16px 0;color:#a82e60;font-weight:normal}
+.subtitle{font-size:18px;line-height:1.6;margin:0 auto 25px;max-width:410px}
+button{border:0;border-radius:999px;padding:14px 24px;background:linear-gradient(120deg,#ff82a9,#d94c83);color:white;font:600 14px Arial,sans-serif;letter-spacing:.4px;box-shadow:0 9px 22px #d94c8340;cursor:pointer;transition:transform .2s,box-shadow .2s}
+button:hover{transform:translateY(-2px);box-shadow:0 13px 28px #d94c8350}
+button:focus-visible{outline:3px solid #a82e60;outline-offset:4px}
+.heart{font-size:34px;display:block;animation:pulse 1.7s infinite}
+@keyframes pulse{50%{transform:scale(1.18)}}
+.hidden{display:none}
+.envelope-wrap{margin:24px auto 8px;max-width:260px;cursor:pointer}
+.envelope{height:160px;background:#f7a9c2;border-radius:12px;position:relative;box-shadow:0 12px 25px #b8326725;overflow:hidden}
+.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,transparent 49%,#ed82a5 50%),linear-gradient(215deg,transparent 49%,#f08dad 50%)}
+.flap{position:absolute;inset:0 0 auto;height:85px;background:#ffbfd1;clip-path:polygon(0 0,100% 0,50% 100%);z-index:2;transition:transform .6s;transform-origin:top}
+.envelope.open .flap{transform:rotateX(180deg)}
+.letter{background:#fffdfc;border-radius:18px;padding:25px 22px;margin:20px 0 0;box-shadow:0 8px 25px #b8326712;text-align:left;line-height:1.85;font-size:17px}
+.letter h2{text-align:center;color:#b83267;font-weight:normal;font-size:29px;margin:0 0 12px}
+.signature{text-align:right;color:#b83267;font-style:italic;margin-top:18px}
+.gift{font-size:64px;margin:12px 0;cursor:pointer;display:inline-block;animation:bob 2s infinite}
+@keyframes bob{50%{transform:translateY(-8px) rotate(3deg)}}
+.footer{font:12px Arial,sans-serif;color:#b47b91;margin-top:25px}
+.float{position:fixed;bottom:-30px;z-index:1;pointer-events:none;animation:rise linear forwards;opacity:.7}
+@keyframes rise{to{transform:translateY(-110vh) rotate(35deg);opacity:0}}
+.small{font:12px Arial,sans-serif;color:#a86b82;margin-top:15px}
+#final{font-size:20px;line-height:1.65;color:#873455}
+</style>
+</head>
+<body>
+<main>
+<section class="card" id="intro">
+  <span class="heart">♡</span>
+  <div class="kicker">A little surprise, made with love</div>
+  <h1>Hey, Koyel!</h1>
+  <p class="subtitle">Someone has a little something to tell you…<br>And yes, it's <em>you</em> who's making this moment special. 🌷</p>
+  <button id="start">Open your surprise ✨</button>
+  <div class="footer">A tiny corner of the internet, just for you</div>
+</section>
+
+<section class="card hidden" id="surprise">
+  <div class="kicker">Just for you, Koyel</div>
+  <h1>A little gift<br>for my favourite girl</h1>
+  <p class="subtitle">Tap the gift first, then open the letter. 💗</p>
+  <div class="gift" id="gift" role="button" tabindex="0" aria-label="Open gift">🎁</div>
+  <p class="small" id="giftHint">A little happiness is waiting inside</p>
+  <div class="hidden" id="giftMessage"><p class="subtitle">Surprise! Sending you the biggest virtual hug. 🤗</p></div>
+  <div class="envelope-wrap" id="envelopeWrap">
+    <div class="envelope" id="envelope"><div class="flap"></div></div>
+    <p class="small">♡ Tap the envelope to read your letter ♡</p>
+  </div>
+  <article class="letter hidden" id="letter">
+    <h2>Dear Koyel,</h2>
+    I don't need a special occasion to remind you how wonderful you are. I just wanted to make you smile today.
+    <br><br>
+    I hope this little surprise brings a smile to your face, because your happiness means a lot to me. Thank you for being you — for your smile, your little moments, and all the memories still waiting for us.
+    <br><br>
+    Whenever you have a difficult day, remember that someone is cheering for you and wishing you all the happiness in the world.
+    <div class="signature">With lots of love, ♡</div>
+  </article>
+  <div class="hidden" id="ending">
+    <p id="final">One last thing…<br><strong>You are special, Koyel. Never forget that. ❤️</strong></p>
+    <button id="again">Read it again ♡</button>
+  </div>
+  <div class="footer">Made especially for Koyel · with love ♡</div>
+</section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+function hearts(){const e=document.createElement('div');e.className='float';e.textContent=['♡','♥','🌸','✨'][Math.floor(Math.random()*4)];e.style.left=Math.random()*100+'vw';e.style.fontSize=(14+Math.random()*20)+'px';e.style.animationDuration=(5+Math.random()*5)+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),10000)}
+let heartTimer;
+$('start').addEventListener('click',()=>{$('intro').classList.add('hidden');$('surprise').classList.remove('hidden');heartTimer=setInterval(hearts,650)});
+function openGift(){$('gift').textContent='💝';$('giftMessage').classList.remove('hidden');$('giftHint').textContent='A hug, wrapped with love.'}
+$('gift').addEventListener('click',openGift);$('gift').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openGift()}});
+$('envelopeWrap').addEventListener('click',()=>{$('envelope').classList.add('open');$('letter').classList.remove('hidden');$('ending').classList.remove('hidden');$('envelopeWrap').style.cursor='default';$('envelopeWrap').querySelector('.small').textContent='A little note, from the heart ♡';});
+$('again').addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'});$('letter').classList.add('hidden');$('ending').classList.add('hidden');$('envelope').classList.remove('open')});
+</script>
+</body>
+</html>
